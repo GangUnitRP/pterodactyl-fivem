@@ -40,7 +40,18 @@ if [ ! -f "$SERVER_BIN_PATH" ]; then
     exit 1
 fi
 
+if [ -d "resources" ]; then
+    echo -e "${Text} ${BLUE}Fetching resources folder from GitHub...${NC}"
+    cd resources
+    git fetch origin "${GITHUB_BRANCH}" 
+    git merge --ff-only origin/"${GITHUB_BRANCH}"
+else
+    echo -e "${RED}[ERROR] Resources folder not found.${NC}"
+    exit 1
+if
+
 echo -e "${Text} ${BLUE}Running the FiveM server with txAdmin...${NC}"
+echo -e "${Text} ${BLUE}--- Gang Unit RP ---${NC}"
 $(pwd)/alpine/opt/cfx-server/ld-musl-x86_64.so.1 \
   --library-path "$(pwd)/alpine/usr/lib/v8/:$(pwd)/alpine/lib/:$(pwd)/alpine/usr/lib/:$(pwd)/alpine/opt/cfx-server/lib/" \
   -- $(pwd)/alpine/opt/cfx-server/FXServer \
