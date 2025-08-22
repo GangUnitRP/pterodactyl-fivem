@@ -6,6 +6,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 Text="${GREEN}[STARTUP]${NC}"
 
+echo -e "${Text} ${BLUE}--- Gang Unit RP ---${NC}"
 echo -e "${Text} ${BLUE}Starting checks for all updates...${NC}"
 
 RELEASE_PAGE=$(curl -sSL https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
