@@ -45,6 +45,7 @@ if [ -d "resources" ]; then
     cd resources
     git fetch origin "${GITHUB_BRANCH}" 
     git merge --ff-only origin/"${GITHUB_BRANCH}"
+    cd ..
 else
     echo -e "${RED}[ERROR] Resources folder not found.${NC}"
     exit 1
