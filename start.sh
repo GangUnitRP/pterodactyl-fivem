@@ -48,7 +48,7 @@ if [ -d "resources" ]; then
 else
     echo -e "${RED}[ERROR] Resources folder not found.${NC}"
     exit 1
-if
+fi
 
 echo -e "${Text} ${BLUE}Running the FiveM server with txAdmin...${NC}"
 echo -e "${Text} ${BLUE}--- Gang Unit RP ---${NC}"
