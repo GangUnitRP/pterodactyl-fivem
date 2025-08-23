@@ -43,8 +43,11 @@ fi
 if [ -d "resources" ]; then
     echo -e "${Text} ${BLUE}Fetching resources folder from GitHub...${NC}"
     cd resources
-    git fetch origin "${GITHUB_BRANCH}" 
-    git merge --ff-only origin/"${GITHUB_BRANCH}"
+
+    git fetch origin "${GITHUB_BRANCH}"
+    git checkout origin/"${GITHUB_BRANCH}" -- .
+    git branch -f "${GITHUB_BRANCH}" origin/"${GITHUB_BRANCH}"
+
     cd ..
 else
     echo -e "${RED}[ERROR] Resources folder not found.${NC}"
