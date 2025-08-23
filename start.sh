@@ -46,7 +46,7 @@ if [ -d "resources" ]; then
 
     git fetch origin "${GITHUB_BRANCH}"
     git checkout origin/"${GITHUB_BRANCH}" -- .
-    git branch -f "${GITHUB_BRANCH}" origin/"${GITHUB_BRANCH}"
+    git reset --soft origin/"${GITHUB_BRANCH}"
 
     cd ..
 else
