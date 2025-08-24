@@ -44,9 +44,14 @@ if [ -d "resources" ]; then
     echo -e "${Text} ${BLUE}Fetching resources folder from GitHub...${NC}"
     cd resources
 
+    #git fetch origin "${GITHUB_BRANCH}"
+    #git checkout origin/"${GITHUB_BRANCH}" -- .
+    #git reset --soft origin/"${GITHUB_BRANCH}"
+    
     git fetch origin "${GITHUB_BRANCH}"
-    git checkout origin/"${GITHUB_BRANCH}" -- .
-    git reset --soft origin/"${GITHUB_BRANCH}"
+    git checkout origin/"${GITHUB_BRANCH}"  # ensure the branch is fetched
+    git checkout "${GITHUB_COMMIT_SHA}" -- .
+    git reset --soft "${GITHUB_COMMIT_SHA}"
 
     cd ..
 else
